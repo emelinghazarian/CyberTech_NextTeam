@@ -141,7 +141,7 @@ This project was developed by **CyberTech_NextTeam**:
 - [Davit](https://github.com/Xmansess)  
 - [Marine](https://github.com/marineharutyunyan)
 - [Emelin](https://github.com/emelinghazarian)  
-- **Vahagn**  
+- [Vahagn](https://github.com/MrPoghosyan)
 - **Meri**  
 
 
