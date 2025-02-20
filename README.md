@@ -6,7 +6,7 @@
 This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + ZySec LLM** to **detect misconfigurations** in infrastructure settings based on **Ubuntu STIG security best practices**.  
 
 **Built on:**  
-- [Kotaemon]([https://github.com/kotaemon](https://github.com/Cinnamon/kotaemon/?tab=readme-ov-file)) – An open-source, clean & customizable RAG UI for chatting with documents.  
+- [Kotaemon](https://github.com/Cinnamon/kotaemon/) – An open-source, clean & customizable RAG UI for chatting with documents.  
 - **ZySec LLM** ([Hugging Face Model](https://huggingface.co/koesn/ZySec-7B-v1-GGUF)) – A security-focused LLM for analyzing configurations.  
 
 **Features:**  
