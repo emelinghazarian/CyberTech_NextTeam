@@ -86,6 +86,8 @@ After starting the UI, you can ask questions such as:
 
 ## **How It Works**
 ## **1.System Config Data:**
+**Collected via Ansible, retrieved from the endpoint, and structured into hierarchical layers.**
+**Data is hashed to track changes in future scans.**
 **Uploads the Ubuntu system configuration file (system_config.txt).**
 
 ## **Security Best Practices:**
