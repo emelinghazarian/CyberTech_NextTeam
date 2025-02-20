@@ -18,6 +18,7 @@ The system follows **three progressive approaches** to improve response quality:
 **Why MongoDB + FAISS?**
 - **MongoDB** enables structured queries (e.g., filtering based on system type).
 - **FAISS** provides fast **vector-based similarity search**.
+![image](https://github.com/user-attachments/assets/efec9ff9-f33d-4a84-92de-d05753a9c698)
 
 ---
 
@@ -33,6 +34,7 @@ The system follows **three progressive approaches** to improve response quality:
   - **Step 1**: Use **MongoDB full-text search** to find relevant past queries.
   - **Step 2**: Apply **vector similarity search** in FAISS for refinement.
   - **Step 3**: Combine **keyword matching + semantic similarity** for retrieval.
+![image](https://github.com/user-attachments/assets/9f79dbf8-d564-4c76-94ad-21e6b494b128)
 
 ---
 
@@ -54,6 +56,7 @@ The system follows **three progressive approaches** to improve response quality:
 1. A **reward model** assigns **scores to retrieved documents**.
 2. Retrieval ranking is improved using **RLHF with PPO**.
 3. **LLM is fine-tuned** to generate **better responses based on implicit feedback**.
+![image](https://github.com/user-attachments/assets/991efc30-bce6-4d1a-98a9-cea54011a15b)
 
 ---
 
