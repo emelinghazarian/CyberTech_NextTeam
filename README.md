@@ -1,6 +1,6 @@
 # CyberTech_NextTeam
 
-## ** Using Large Language Models (LLMs) with RAG to Detect Infrastructure Misconfigurations and Suggest fixes**
+# ** Using Large Language Models (LLMs) with RAG to Detect Infrastructure Misconfigurations and Suggest fixes**
 
 ## ** Overview**
 This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + ZySec LLM** to **detect misconfigurations** in infrastructure settings based on **Ubuntu STIG security best practices**.  
@@ -18,7 +18,7 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 ---
 
 ## **Project Structure**
----
+```bash
 │── /configs
 │   ├── system_config.txt   # Extracted system configuration for Ubuntu
 │   ├── Ubuntu_STIG.csv     # STIG security best practices for Ubuntu 22.04
@@ -28,7 +28,7 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 │   ├── kotaemon-ui        # Kotaemon RAG-based UI for chat interface
 │── README.md
 
----
+```
 
 ## **Setup Instructions**
 
