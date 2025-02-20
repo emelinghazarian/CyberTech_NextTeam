@@ -9,6 +9,7 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 - [Kotaemon](https://github.com/Cinnamon/kotaemon/) – An open-source, clean & customizable RAG UI for chatting with documents.  
 - **ZySec LLM** ([Hugging Face Model](https://huggingface.co/koesn/ZySec-7B-v1-GGUF)) – A security-focused LLM for analyzing configurations.  
 - **Ubuntu STIG** – ([Canonical Ubuntu 22.04 LTS STIG Guide](https://www.stigviewer.com/stig/canonical_ubuntu_22.04_lts/)) – Used as a benchmark for security compliance.
+- - **Ansible** – Automates infrastructure data collection via **SSH keys for endpoint authentication**.
 
 **Features:**  
 **The architecture is designed for automated security analysis, leveraging Ansible for SSH-based access to endpoints.**  
