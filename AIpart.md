@@ -4,8 +4,8 @@
 This repository implements an **AI-powered system** that detects **infrastructure misconfigurations** and suggests fixes using **Large Language Models (LLMs) with Retrieval-Augmented Generation (RAG)**. We enhance accuracy over time by integrating **user feedback** through **short-term retrieval, real-time feedback storage, and long-term RLHF
 fine-tuning**.
 
-📌 **Graphical Representation of the AI System:**  
-[🔗 View the Excalidraw Diagram](https://excalidraw.com/#room=7ca328fea12a23472798,fRy6cW96Ks_Dpd0xOBUe_g)
+**Graphical Representation of the AI System:**  
+[View the Excalidraw Diagram](https://excalidraw.com/#room=7ca328fea12a23472798,fRy6cW96Ks_Dpd0xOBUe_g)
 
 ---
 
