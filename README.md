@@ -107,7 +107,7 @@ After starting the UI, you can ask questions such as:
 ![image](https://github.com/user-attachments/assets/b2872a7d-7cfe-4a89-9c18-42569c08e050)
 
 
-## **🚀 Team & Contributors**
+## **Team & Contributors**
 This project was developed by **CyberTech_NextTeam**:
 
 - [Davit](https://github.com/Xmansess)  
