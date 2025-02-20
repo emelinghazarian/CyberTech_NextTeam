@@ -1,12 +1,12 @@
 # CyberTech_NextTeam
 
-# ** Using Large Language Models (LLMs) with RAG to Detect Infrastructure Misconfigurations and Suggest fixes**
+# Using Large Language Models (LLMs) with RAG to Detect Infrastructure Misconfigurations and Suggest fixes
 
 ## ** Overview**
 This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + ZySec LLM** to **detect misconfigurations** in infrastructure settings based on **Ubuntu STIG security best practices**.  
 
 **Built on:**  
-- [Kotaemon](https://github.com/kotaemon) – An open-source, clean & customizable RAG UI for chatting with documents.  
+- [Kotaemon]([https://github.com/kotaemon](https://github.com/Cinnamon/kotaemon/?tab=readme-ov-file)) – An open-source, clean & customizable RAG UI for chatting with documents.  
 - **ZySec LLM** ([Hugging Face Model](https://huggingface.co/koesn/ZySec-7B-v1-GGUF)) – A security-focused LLM for analyzing configurations.  
 
 **Features:**  
@@ -71,7 +71,7 @@ After starting the UI, you can ask questions such as:
 ## **RAG Workflow:**
 **The system retrieves relevant security rules using a hybrid approach:**
 ### **Structured Query: Fetches data from MongoDB (or local storage) for exact matches.**
-### **Vector Search: Uses FAISS to quickly retrieve similar best practices.88
+### **Vector Search: Uses FAISS to quickly retrieve similar best practices.**
 **ZySec LLM then analyzes the matched data and identifies misconfigurations.**
 
 ## **Report & Recommendations:**
