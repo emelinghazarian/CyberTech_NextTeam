@@ -10,6 +10,13 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 **Username:** `admin`  
 **Password:** `NextTeamsProjectsMinimumViableProductDemonstration$0$&/`
 
+### **How to Use the Gradio Interface**
+- Start by **uploading the files** 
+- Visit the **Files tab** for more options (e.g., **GraphRAG**).  
+- Type a message, **search using `@web`**, or tag a file with **`@filename`** for context-aware retrieval.  
+
+---
+
 **Built on:**  
 - [Kotaemon](https://github.com/Cinnamon/kotaemon/) – An open-source, clean & customizable RAG UI for chatting with documents.  
 - **ZySec LLM** ([Hugging Face Model](https://huggingface.co/koesn/ZySec-7B-v1-GGUF)) – A security-focused LLM for analyzing configurations.  
