@@ -69,10 +69,10 @@ After starting the UI, you can ask questions such as:
 **Uses the STIG guidelines from Ubuntu_STIG.csv as a reference to detect security issues.**
 
 ## **RAG Workflow:**
-## **hybrid approach:**
-# **Structured Query: Retrieves exact matches from a database**
-# **Vector Search: Uses FAISS to quickly retrieve similar best practices.**
-## **ZySec LLM then analyzes the matched data and identifies misconfigurations.**
+**hybrid approach:**
+**1.Structured Query: Retrieves exact matches from a database**
+**2.Vector Search: Uses FAISS to quickly retrieve similar best practices.**
+**ZySec LLM then analyzes the matched data and identifies misconfigurations.**
 
 ## **Report & Recommendations:**
 **The LLM provides a detailed report with recommended fixes and a severity assessment.**
