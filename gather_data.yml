@@ -1,87 +1,87 @@
 ---
-- name: Հավաքել համակարգի տվյալները
-  hosts: localhost
-  gather_facts: true
-  tasks:
-    - name: Հավաքել host info
-      ansible.builtin.setup:
-      register: host_info
-
-    - name: Հավաքել տեղադրված ծրագրերը
-      ansible.builtin.package_facts:
-        manager: auto
-      register: installed_apps
-
-    - name: Հավաքել աշխատող պրոցեսները (Linux)
-      ansible.builtin.command: "ps aux"
-      register: running_processes
-      when: ansible_os_family != 'Windows'
-
-    - name: Հավաքել աշխատող պրոցեսները (Windows)
-      ansible.windows.win_command: "tasklist"
-      register: running_processes_win
-      when: ansible_os_family == 'Windows'
-
-    - name: Հավաքել կոնֆիգուրացիոն ֆայլերը
-      ansible.builtin.find:
-        paths:
-          - /etc
-          - /home
-          - /root
-        patterns: "*.conf,*.cfg,.bashrc,.profile"
-      register: config_files
-
-    - name: Ստեղծել կոնֆիգ ֆայլերի մանրամասն տեղեկությունների ցուցակ
-      set_fact:
-        config_details: "{{ config_details|default([]) + [ item ] }}"
-      loop: "{{ config_files.files }}"
-
-    - name: Հավաքել firewall կանոնները (Linux)
-      ansible.builtin.command: "iptables -L -n -v"
-      register: firewall_rules_linux
-      when: ansible_os_family != 'Windows'
-
-    - name: Հավաքել firewall կանոնները (Windows)
-      ansible.windows.win_command: "netsh advfirewall firewall show rule name=all"
-      register: firewall_rules_win
-      when: ansible_os_family == 'Windows'
-
-    - name: Հավաքել IDS/IPS կանոնները (Suricata/Snort)
-      ansible.builtin.find:
-        paths:
-          - /etc/suricata
-          - /etc/snort
-        patterns: "*.rules"
-      register: ids_rules
-
-    - name: Հավաքել backup-ների մասին տեղեկություն
-      ansible.builtin.find:
-        paths:
-          - /backup
-          - /var/backup
-          - /home
-        patterns: "*.bak,*.tar.gz,*.zip"
-      register: backup_info
-
-    - name: Հավաքել լրացուցիչ IP հասցեների տվյալներ
-      set_fact:
-        ip_details:
-          default_ipv4: "{{ ansible_facts.ansible_default_ipv4 | default({}) }}"
-          all_ipv4: "{{ ansible_facts.ansible_all_ipv4_addresses | default([]) }}"
-
-    - name: Պահել բոլոր տվյալները JSON ֆայլում
-      ansible.builtin.copy:
-        content: |
-          {
-            "host_info": {{ host_info | to_nice_json }},
-            "installed_apps": {{ installed_apps | to_nice_json }},
-            "running_processes": {{ (running_processes.stdout if ansible_os_family != 'Windows' else running_processes_win.stdout) | to_nice_json }},
-            "ip_details": {{ ip_details | to_nice_json }},
-            "config_details": {{ config_details | to_nice_json }},
-            "firewall_rules": {{ (firewall_rules_linux.stdout if ansible_os_family != 'Windows' else firewall_rules_win.stdout) | to_nice_json }},
-            "ids_rules": {{ ids_rules | to_nice_json }},
-            "backup_info": {{ backup_info | to_nice_json }}
-          }
-        dest: "./system_data.json"
-        mode: 0644
-
+  - name: Gather System Data
+    hosts: localhost
+    gather_facts: true
+    tasks:
+      - name: Collect Host Info
+        ansible.builtin.setup:
+        register: host_info
+  
+      - name: Collect Installed Applications
+        ansible.builtin.package_facts:
+          manager: auto
+        register: installed_apps
+  
+      - name: Collect Running Processes (Linux)
+        ansible.builtin.command: "ps aux"
+        register: running_processes
+        when: ansible_os_family != 'Windows'
+  
+      - name: Collect Running Processes (Windows)
+        ansible.windows.win_command: "tasklist"
+        register: running_processes_win
+        when: ansible_os_family == 'Windows'
+  
+      - name: Collect Configuration Files
+        ansible.builtin.find:
+          paths:
+            - /etc
+            - /home
+            - /root
+          patterns: "*.conf,*.cfg,.bashrc,.profile"
+        register: config_files
+  
+      - name: Create a Detailed List of Configuration Files
+        set_fact:
+          config_details: "{{ config_details|default([]) + [ item ] }}"
+        loop: "{{ config_files.files }}"
+  
+      - name: Collect Firewall Rules (Linux)
+        ansible.builtin.command: "iptables -L -n -v"
+        register: firewall_rules_linux
+        when: ansible_os_family != 'Windows'
+  
+      - name: Collect Firewall Rules (Windows)
+        ansible.windows.win_command: "netsh advfirewall firewall show rule name=all"
+        register: firewall_rules_win
+        when: ansible_os_family == 'Windows'
+  
+      - name: Collect IDS/IPS Rules (Suricata/Snort)
+        ansible.builtin.find:
+          paths:
+            - /etc/suricata
+            - /etc/snort
+          patterns: "*.rules"
+        register: ids_rules
+  
+      - name: Collect Backup Information
+        ansible.builtin.find:
+          paths:
+            - /backup
+            - /var/backup
+            - /home
+          patterns: "*.bak,*.tar.gz,*.zip"
+        register: backup_info
+  
+      - name: Collect Additional IP Address Information
+        set_fact:
+          ip_details:
+            default_ipv4: "{{ ansible_facts.ansible_default_ipv4 | default({}) }}"
+            all_ipv4: "{{ ansible_facts.ansible_all_ipv4_addresses | default([]) }}"
+  
+      - name: Store All Data in a JSON File
+        ansible.builtin.copy:
+          content: |
+            {
+              "host_info": {{ host_info | to_nice_json }},
+              "installed_apps": {{ installed_apps | to_nice_json }},
+              "running_processes": {{ (running_processes.stdout if ansible_os_family != 'Windows' else running_processes_win.stdout) | to_nice_json }},
+              "ip_details": {{ ip_details | to_nice_json }},
+              "config_details": {{ config_details | to_nice_json }},
+              "firewall_rules": {{ (firewall_rules_linux.stdout if ansible_os_family != 'Windows' else firewall_rules_win.stdout) | to_nice_json }},
+              "ids_rules": {{ ids_rules | to_nice_json }},
+              "backup_info": {{ backup_info | to_nice_json }}
+            }
+          dest: "./system_data.json"
+          mode: 0644
+  
