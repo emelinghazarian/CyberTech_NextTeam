@@ -15,7 +15,6 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 **Provides fixes & recommendations for compliance.**  
 **Works with Ubuntu STIG benchmarks for Canonical Ubuntu 22.04 LTS.**  
 
----
 
 ## **Project Structure**
 ```bash
@@ -34,7 +33,7 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 
 ### **Clone the Repository**
 ```bash
-git clone https://github.com/your_username/your_repo.git
+git clone [https://github.com/your_username/your_repo.git](https://github.com/Cinnamon/kotaemon/?tab=readme-ov-file)
 ```
 
 ### **Install Dependencies**
