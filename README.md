@@ -5,6 +5,11 @@
 ## ** Overview**
 This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + ZySec LLM** to **detect misconfigurations** in infrastructure settings based on **Ubuntu STIG security best practices**.  
 
+**Live Demo** (Gradio UI):  
+[Access the Gradio Interface](https://451592b777de1bb5ce.gradio.live)  
+**Username:** `admin`  
+**Password:** `NextTeamsProjectsMinimumViableProductDemonstration$0$&/`
+
 **Built on:**  
 - [Kotaemon](https://github.com/Cinnamon/kotaemon/) – An open-source, clean & customizable RAG UI for chatting with documents.  
 - **ZySec LLM** ([Hugging Face Model](https://huggingface.co/koesn/ZySec-7B-v1-GGUF)) – A security-focused LLM for analyzing configurations.  
@@ -36,6 +41,9 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 │   ├── zysec-7b-v1.gguf   # ZySec LLM model file
 │── /rag_ui
 │   ├── kotaemon-ui        # Kotaemon RAG-based UI for chat interface
+│── /ansible
+│   ├── gather_data.yml    # Ansible playbook for data collection
+│   ├── system_data_vuln.json  # Collected JSON data with security vulnerabilities
 │── README.md
 
 ```
@@ -63,15 +71,35 @@ wget https://huggingface.co/koesn/ZySec-7B-v1-GGUF/resolve/main/zysec-7b-v1.gguf
 ### **Configure & Run Ansible for Data Collection**
 The Ansible playbook connects to endpoint servers via SSH, retrieves system configurations, and hashes the collected data for tracking updates.
 **Setup SSH Keys for Ansible**
-1.Add your endpoint servers to ansible/inventory.ini:
+The Ansible playbook (gather_data.yml) connects to remote Ubuntu endpoints via SSH to collect system configurations and stores them in a structured JSON file (system_data_vuln.json).
+1.Install Ansible
+If Ansible is not already installed, install it with:
+```bash
+sudo apt update && sudo apt install ansible -y
+```
+2.Generate SSH Keys (if not already set up)
+If you haven't set up SSH keys for Ansible authentication, generate them with:
+```bash
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+```
+
+3. Copy SSH Key to Endpoint Servers
+Replace 192.168.1.100 with your actual server's IP:
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub ubuntu@192.168.1.100
+```
+
+4. Configure Ansible Inventory
+Edit ansible/inventory.ini to define your remote servers:
 ```ini
 [ubuntu_servers]
 192.168.1.100 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
 ```
-2.Run the Ansible Playbook to Collect Infrastructure Data
+5.Run the Ansible Playbook to Collect Infrastructure Data
+Navigate to the Ansible directory and run the playbook:
 ```bash
 cd ansible
-ansible-playbook -i inventory.ini playbook.yml
+ansible-playbook -i inventory.ini gather_data.yml
 ```
 
 ### **Run Kotaemon RAG UI**
