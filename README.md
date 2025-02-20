@@ -11,8 +11,10 @@ This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + Zy
 - **Ubuntu STIG** – ([Canonical Ubuntu 22.04 LTS STIG Guide](https://www.stigviewer.com/stig/canonical_ubuntu_22.04_lts/)) – Used as a benchmark for security compliance.
 
 **Features:**  
-**Built a system that can connect to an endpoint and extract key infrastructure data. (used Ubuntu OS for testing and validation.)**
-**The tool extracts infrastructure configurations from an Ubuntu endpoint and structures the data into a JSON file.**  
+**The architecture is designed for automated security analysis, leveraging Ansible for SSH-based access to endpoints.**  
+**SSH keys of endpoints are provided to Ansible** for secure infrastructure data retrieval.    
+**The system connects to an endpoint and extracts key infrastructure data. (used Ubuntu OS for testing and validation.)**
+**Extracts infrastructure configurations from an Ubuntu endpoint and structures the data into a JSON file.**  
 **Collected data includes:**  
    - Running **processes**  
    - **Services**  
@@ -57,6 +59,19 @@ wget https://huggingface.co/koesn/ZySec-7B-v1-GGUF/resolve/main/zysec-7b-v1.gguf
 ```
 ![LMM](https://github.com/user-attachments/assets/c984b5e9-8a00-4dc7-a3b5-e0248bcd9f82)
 
+### **Configure & Run Ansible for Data Collection**
+The Ansible playbook connects to endpoint servers via SSH, retrieves system configurations, and hashes the collected data for tracking updates.
+**Setup SSH Keys for Ansible**
+1.Add your endpoint servers to ansible/inventory.ini:
+```ini
+[ubuntu_servers]
+192.168.1.100 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+```
+2.Run the Ansible Playbook to Collect Infrastructure Data
+```bash
+cd ansible
+ansible-playbook -i inventory.ini playbook.yml
+```
 
 ### **Run Kotaemon RAG UI**
 Start the Kotaemon RAG UI in your local environment
