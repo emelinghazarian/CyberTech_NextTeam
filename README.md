@@ -2,7 +2,7 @@
 
 # Using Large Language Models (LLMs) with RAG to Detect Infrastructure Misconfigurations and Suggest fixes
 
-## ** Overview**
+## Overview
 This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + ZySec LLM** to **detect misconfigurations** in infrastructure settings based on **Ubuntu STIG security best practices**.  
 
 **Live Demo** (web interface):  
