@@ -68,7 +68,7 @@ Ensure you have Python and the required libraries installed:
 pip install -r requirements.txt
 ```
 
-### **Download & Load ZySec LLM **
+### **Download & Load ZySec LLM**
 Download the ZySec LLM model from Hugging Face and place it in the /models directory:
 ```bash
 wget https://huggingface.co/koesn/ZySec-7B-v1-GGUF/resolve/main/zysec-7b-v1.gguf -P models/
