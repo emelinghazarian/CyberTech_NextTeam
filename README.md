@@ -108,6 +108,8 @@ Navigate to the Ansible directory and run the playbook:
 cd ansible
 ansible-playbook -i inventory.ini gather_data.yml
 ```
+![image](https://github.com/user-attachments/assets/1ddb5ee7-0434-48e9-b0f7-f0dd1a5eb558)
+
 
 ### **Run Kotaemon RAG UI**
 Start the Kotaemon RAG UI in your local environment
