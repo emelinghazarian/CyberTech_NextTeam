@@ -149,7 +149,7 @@ This project was developed by **CyberTech_NextTeam**:
 - [Marine](https://github.com/marineharutyunyan)
 - [Emelin](https://github.com/emelinghazarian)  
 - [Vahagn](https://github.com/MrPoghosyan)
-- [Meri](https://github.com/marineharutyunyan)
+- **Meri**
 
 
 
