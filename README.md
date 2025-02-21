@@ -5,12 +5,12 @@
 ## ** Overview**
 This project demonstrates how to use **RAG (Retrieval-Augmented Generation) + ZySec LLM** to **detect misconfigurations** in infrastructure settings based on **Ubuntu STIG security best practices**.  
 
-**Live Demo** (Gradio UI):  
-[Access the Gradio Interface](https://b576fb8bd1e91375ed.gradio.live/)  
+**Live Demo** (web interface):  
+[Access the web](http://172.233.142.115/)  
 **Username:** `admin`  
 **Password:** `NextTeamsProjectsMinimumViableProductDemonstration$0$&/`
 
-### **How to Use the Gradio Interface**
+### **How to Use the web Interface**
 - Start by **uploading the files** 
 - Visit the **Files tab** for more options (e.g., **GraphRAG**).  
 - Type a message, **search using `@web`**, or tag a file with **`@filename`** for context-aware retrieval.  
